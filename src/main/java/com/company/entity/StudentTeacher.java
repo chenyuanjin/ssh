@@ -27,7 +27,8 @@ public class StudentTeacher implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     public Student getStudent() {
         return student;
@@ -37,7 +38,7 @@ public class StudentTeacher implements Serializable{
         this.student = student;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "teacher_id")
     public Teacher getTeacher() {
         return teacher;

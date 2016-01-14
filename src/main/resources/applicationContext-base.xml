@@ -18,7 +18,7 @@
             <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" p:supportedMediaTypes="text/html"  />
         </mvc:message-converters>
     </mvc:annotation-driven>-->
-    <!-- spring自动扫描注解的组件 -->
+    <!-- spring自动扫描注解的组件,p配置自动注解的包 -->
     <context:annotation-config/>
     <context:component-scan base-package="com.company.*">
        <!-- <context:include-filter type="regex" expression="com.authority.controller.*"/>-->
