@@ -4,4 +4,5 @@
 - 数据库文件在resource的sql目录下,使用的是MySQL
 - 整个项目采用了注解形式的配置
 
-##以后会逐步加上Spring Security,MemCache,MQ
+#扩展
+- 2016-08-23 增加Spring Security
