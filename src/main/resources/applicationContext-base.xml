@@ -33,7 +33,7 @@
     <!--静态文件的位置 -->
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
-    <mvc:resources location="/common/" mapping="/public/**" />
+    <!--<mvc:resources location="/common/" mapping="/public/**" />-->
 
    <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

@@ -11,7 +11,7 @@
         <spring.version>4.1.6.RELEASE</spring.version>
         <hibernate.version>4.3.10.Final</hibernate.version>
         <version.jackson>2.4.4</version.jackson>
-       <!-- <spring.security.version>3.2.8.RELEASE</spring.security.version>-->
+        <spring.security.version>3.2.8.RELEASE</spring.security.version>
     </properties>
     <repositories>
 
@@ -214,7 +214,7 @@
         </dependency>
 
         <!-- spring oauth 相关 -->
-       <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>${spring.security.version}</version>
@@ -243,23 +243,12 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>${spring.security.version}</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
-        <!--mongodb driver-->
-    <!--    <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.log4mongo</groupId>
-            <artifactId>log4mongo-java</artifactId>
-            <version>0.7.4</version>
-        </dependency>-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>

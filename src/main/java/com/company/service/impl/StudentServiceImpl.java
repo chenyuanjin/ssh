@@ -23,7 +23,7 @@ public class StudentServiceImpl extends BaseService<Student> implements StudentS
     public List<Student> getByTeacher(String teacher) {
         List<StudentTeacher> studentTeachers = studentTeacherDao.getByTeacher(teacher);
         List<Student> students = new ArrayList<>();
-        for (StudentTeacher st : studentTeachers){
+        for (StudentTeacher st : studentTeachers) {
             students.add(st.getStudent());
         }
 

@@ -164,3 +164,25 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+--
+-- 表的结构 `sys_users`
+--
+
+CREATE TABLE IF NOT EXISTS `sys_users` (
+  `id` char(32) NOT NULL,
+  `user_name` varchar(45) NOT NULL COMMENT '用户名',
+  `user_account` varchar(60) NOT NULL COMMENT '帐号',
+  `user_password` varchar(45) NOT NULL COMMENT '密码',
+  `user_type` int(11) DEFAULT NULL COMMENT '类型',
+  `is_account_non_expired` tinyint(1) DEFAULT NULL,
+  `is_account_non_locked` tinyint(1) DEFAULT NULL,
+  `is_credentials_non_expired` tinyint(1) DEFAULT NULL,
+  `is_enabled` tinyint(1) DEFAULT NULL,
+  `is_sys` tinyint(1) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `creator_id` char(32) DEFAULT NULL,
+  `job` char(32) DEFAULT NULL,
+  `owner` char(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

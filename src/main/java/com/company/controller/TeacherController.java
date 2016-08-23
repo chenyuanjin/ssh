@@ -21,12 +21,12 @@ public class TeacherController {
     @Autowired
     StudentService studentService;
 
-    @RequestMapping(value = "getstudents",method = RequestMethod.GET)
-    public ModelAndView getStudents(@RequestParam("name") String name){
+    @RequestMapping(value = "getstudents", method = RequestMethod.GET)
+    public ModelAndView getStudents(@RequestParam("name") String name) {
         ModelAndView modelAndView = new ModelAndView("teacher");
         List<Student> students = studentService.getByTeacher(name);
-        modelAndView.addObject("students",students);
-        modelAndView.addObject("teacher",name);
+        modelAndView.addObject("students", students);
+        modelAndView.addObject("teacher", name);
         return modelAndView;
     }
 }

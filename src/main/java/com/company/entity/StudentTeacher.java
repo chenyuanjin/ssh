@@ -9,9 +9,9 @@ import java.io.Serializable;
  * Created by chenyj on 16/1/13.
  */
 @Entity
-@Table(name="student_teacher")
-@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","operations","roles","menus"})
-public class StudentTeacher implements Serializable{
+@Table(name = "student_teacher")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "operations", "roles", "menus"})
+public class StudentTeacher implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int id;
@@ -19,7 +19,7 @@ public class StudentTeacher implements Serializable{
     private Teacher teacher;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }

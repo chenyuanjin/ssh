@@ -14,9 +14,9 @@ public class StudentTeacherDaoImpl extends BaseDao<StudentTeacher> implements St
     @Override
     public List<StudentTeacher> getByTeacher(String teacher) {
         String hql = "from  StudentTeacher where teacher.name = ?";
-        Object[] args={
+        Object[] args = {
                 teacher
         };
-        return list(hql,args);
+        return list(hql, args);
     }
 }

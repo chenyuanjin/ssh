@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <security:http security="none" pattern="/public/**"/>
+    <security:http security="none" pattern="/login*"/>
+    <security:http security="none" pattern="/maxSessionError*"/>
+    <security:http security="none" pattern="/forbidden*"/>
+
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/**" access="isAuthenticated()"/>
+        <security:form-login login-page="/login"
+                             default-target-url="/home"
+                             authentication-failure-url="/login?error=1"
+                             authentication-success-handler-ref="loginSuccessHandler"
+        />
+        <security:logout  invalidate-session="true" logout-url="/logout" delete-cookies="true" success-handler-ref="logoutSuccessHandler" />
+        <security:access-denied-handler error-page="/forbidden"/>
+        <security:session-management session-fixation-protection="newSession" >
+            <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="false"  expired-url="/maxSessionError" />
+        </security:session-management>
+
+        <security:custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+    </security:http>
+
+    <!--用户权限管理,用户密码md5加密-->
+    <security:authentication-manager alias="authenticationManager"  >
+        <security:authentication-provider user-service-ref="userInfoProvider" >
+            <security:password-encoder hash="md5" base64="true"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <beans:bean id="loggerListener"
+                class="org.springframework.security.authentication.event.LoggerListener" />
+    <beans:bean id="authorizationListener"
+                class="org.springframework.security.access.event.LoggerListener" />
+
+    <!--过滤器-->
+    <beans:bean id="myFilter" class="com.company.filter.MyFilterSecurityInterceptor">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+    </beans:bean>
+
+
+    <!--用户信息Provider-->
+    <bean id="userInfoProvider" class="com.company.service.impl.UserInfoServiceImpl" />
+
+    <!--登陆成功-->
+    <bean id="loginSuccessHandler" class="com.company.handler.MyLoginSuccessHandler" />
+    <!--退出登录-->
+    <bean id="logoutSuccessHandler" class="com.company.handler.MyLogoutSuccessHandler" />
+
+
+    <!--登陆失败-->
+    <bean id="loginFailHandler" class="com.company.handler.MyLoginFailHandler"/>
+
+</beans>

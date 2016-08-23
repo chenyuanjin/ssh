@@ -18,7 +18,7 @@ public class BaseService<T> implements IBaseService<T> {
     private static Logger logger = Logger.getLogger(BaseService.class);
 
     @Autowired
-    BaseDao<T> baseDao ;
+    BaseDao<T> baseDao;
     /**
      * 创建一个Class的对象来获取泛型的class
      */
@@ -27,10 +27,10 @@ public class BaseService<T> implements IBaseService<T> {
     private Class<?> clz;
 
     public Class<?> getClz() {
-        if(clz==null) {
+        if (clz == null) {
             //获取泛型的Class对象
             clz = ((Class<?>)
-                    (((ParameterizedType)(this.getClass().getGenericSuperclass())).getActualTypeArguments()[0]));
+                    (((ParameterizedType) (this.getClass().getGenericSuperclass())).getActualTypeArguments()[0]));
         }
         return clz;
     }
@@ -62,7 +62,7 @@ public class BaseService<T> implements IBaseService<T> {
     }
 
     @Override
-    public void saveOrUpdate(T t){
+    public void saveOrUpdate(T t) {
         baseDao.saveOrUpdate(t);
     }
 

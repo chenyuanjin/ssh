@@ -8,8 +8,8 @@ import java.sql.Timestamp;
  * Created by chenyj on 16/1/13.
  */
 @Entity
-@Table(name="student")
-public class Student implements Serializable{
+@Table(name = "student")
+public class Student implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int id;
@@ -17,7 +17,7 @@ public class Student implements Serializable{
     private Timestamp createTime;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
